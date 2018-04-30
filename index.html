@@ -49,16 +49,16 @@
         <div class="row">
             <div class="col-3">
 
-                <img id="crystals" type="button" class="btn btn-light" data-crystalValue="2" src="assets/images/red-crystal.jpg" alt="crystal1">
+                <img id="crystals" class="red" type="button" class="btn btn-light" data-crystalValue="2" src="assets/images/red-crystal.jpg" alt="crystal1">
             </div>
             <div class="col-3">
-                <img id="crystals" type="button" class="btn btn-light" data-crystalValue="5" src="assets/images/blue-crystal.jpg" alt="crystal2">
+                <img id="crystals" class="blue" type="button" class="btn btn-light" data-crystalValue="5" src="assets/images/blue-crystal.jpg" alt="crystal2">
             </div>
             <div class="col-3">
-                <img id="crystals" type="button" class="btn btn-light" data-crystalValue="15" src="assets/images/green-crystal.jpg" alt="crystal3">
+                <img id="crystals" class="green" type="button" class="btn btn-light" data-crystalValue="15" src="assets/images/green-crystal.jpg" alt="crystal3">
             </div>
             <div class="col-3">
-                <img id="crystals" type="button" class="btn btn-light" data-crystalValue="10" src="assets/images/yellow-crystal.jpg" alt="crystal4">
+                <img id="crystals" class="yellow" type="button" class="btn btn-light" data-crystalValue="10" src="assets/images/yellow-crystal.jpg" alt="crystal4">
             </div>
         </div>
         <div id="scoreBox">
@@ -78,32 +78,33 @@
         var losses = 0;
         var randomNumber = randomNumberFromRange(minNumber,
             maxNumber);
-        var numberOptions = [10, 5, 3, 7];
+        var num1 = Math.floor(Math.random() * 11 + 1)
+        var num2 = Math.floor(Math.random() * 11 + 1)
+        var num3 = Math.floor(Math.random() * 11 + 1)
+        var num4 = Math.floor(Math.random() * 11 + 1)
 
+        //to create the random number
         function randomNumberFromRange(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
         console.log(randomNumber);
-
-
-        for (var i = 0; i < numberOptions.length; i++) {
-            // crystals.attr("data-crystalvalue", numberOptions[i]);
-        }
-
         $("#targetNumber").text("Target number: " + randomNumber);
 
-    $("#crystals").click(function () {
-        alert("You clicked my crystal");
-    });
 
-    
+
+
+        $(this).click(function () {
+            alert("You clicked my crystal");
+        });
+
+
         function winner() {
             alert("You Won!!");
             wins++;
             $("#numberWins").text("Wins: " + wins);
             reset();
         }
-    
+
 
         function loser() {
             alert("You Lose!!");
@@ -111,7 +112,6 @@
             $("#numberLosses").text("losses: " + losses);
             reset();
         }
-
     </script>
 </body>
 
