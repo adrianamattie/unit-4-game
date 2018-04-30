@@ -1,0 +1,18 @@
+#mainContent {
+    background-color: lightcoral;
+    color: lightslategray;
+    border: lightslategray dotted;
+}
+
+img {
+    width: 10em;
+    height: 10em;
+}
+
+#scoreBox {
+    background-color: teal;
+    overflow: hidden;
+    padding-left: 1em;
+    height: 2em;
+    line-height: 30px;
+}

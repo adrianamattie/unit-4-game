@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystal's Game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" href="assets/javascript/game.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1>Crystal Collector!</h1>
+        <main id="mainContent">
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There are four crystals below. By clicking on a crystal you will add a specfic amount of points to your total
+                score.
+            </p>
+            <p>You win the game by matching your total score to random number, you lose the game if your total score goes over
+                the random number.
+            </p>
+            <p> The value of each crystal is hidden from you until you click on it.</p>
+            <p>Each time the game starts, the game will change the values of each crystal</p>
+        </main>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div id="targetNumber" class="col-6"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div id="numberWins" class="col-12">Wins:</div>
+                </div>
+                <div class="row">
+                    <div id="numberLosses" class="col-12">Losses:</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+
+                <img id="crystal" type="button" class="btn btn-light" data-crystalValue="2" src="assets/images/red-crystal.jpg" alt="crystal1">
+            </div>
+            <div class="col-3">
+                <img id="crystals" type="button" class="btn btn-light" data-crystalValue="5" src="assets/images/blue-crystal.jpg" alt="crystal2">
+            </div>
+            <div class="col-3">
+                <img id="crystals" type="button" class="btn btn-light" data-crystalValue="15" src="assets/images/green-crystal.jpg" alt="crystal3">
+            </div>
+            <div class="col-3">
+                <img id="crystals" type="button" class="btn btn-light" data-crystalValue="10" src="assets/images/yellow-crystal.jpg" alt="crystal4">
+            </div>
+        </div>
+        <div id="scoreBox">
+            <div class="score">Your total score is: </div>
+            <div class="totalScore"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready()
+
+        var minNumber = 19;
+        var maxNumber = 120;
+        var wins = 0;
+        var losses = 0;
+        var randomNumber = randomNumberFromRange(minNumber,
+            maxNumber);
+        var numberOptions = [10, 5, 3, 7];
+
+        function randomNumberFromRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        console.log(randomNumber);
+
+
+        for (var i = 0; i < numberOptions.length; i++) {
+            // crystals.attr("data-crystalvalue", numberOptions[i]);
+        }
+
+        $("#targetNumber").text("Target number: " + randomNumber);
+
+    $("#crystals").click(function () {
+        alert("You clicked my crystal");
+    });
+
+    
+        function winner() {
+            alert("You Won!!");
+            wins++;
+            $("#numberWins").text("Wins: " + wins);
+            reset();
+        }
+    
+
+        function loser() {
+            alert("You Lose!!");
+            losses++;
+            $("#numberLosses").text("losses: " + losses);
+            reset();
+        }
+
+    </script>
+</body>
+
+</html>
