@@ -3,17 +3,19 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 #title {
     color: green;
 }
 
-#targetNumber {
-    color: green; 
+#targetNumber, #numberWins, #numberLosses {
+    color: green;
 }
+
 #mainContent {
     background-color: white;
     color: green;
-    border:Green;
+    border: Green;
 }
 
 img {

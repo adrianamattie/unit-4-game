@@ -62,8 +62,10 @@
             </div>
         </div>
         <div id="scoreBox">
-            <div class="score">Your total score is: </div>
-            <div class="totalScore"></div>
+            <h4> Your total score is:
+                <span id="totalScore">0</span>
+            </h4>
+            </h1>
         </div>
     </div>
 
@@ -73,11 +75,14 @@
         $(document).ready()
 
         var minNumber = 19;
-        var maxNumber = 120;
+        var maxNumber = 60;
         var wins = 0;
         var losses = 0;
-        var randomNumber = randomNumberFromRange(minNumber,
+        var counter = 0;
+        var crystals = $("#crystals");
+        var targetNumber = randomNumberFromRange(minNumber,
             maxNumber);
+
         var num1 = Math.floor(Math.random() * 10 + 1)
         console.log(num1)
         var num2 = Math.floor(Math.random() * 10 + 1)
@@ -91,49 +96,94 @@
         function randomNumberFromRange(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
-        console.log(randomNumber);
-        $("#targetNumber").text("Target number: " + randomNumber);
+        //to add to the div with id of targetNumber 
+        $("#targetNumber").text("Target number: " + targetNumber);
+
+        //adding changing value attribute to each crystal 
+        $("#red").attr("value", num1)
+        $("#blue").attr("value", num2)
+        $("#green").attr("value", num3)
+        $("#yellow").attr("value", num4)
 
         $(red).click(function () {
-            alert("You clicked my red crystal");
+            counter = counter + num1;
+            $("#totalScore").text(counter);
+            console.log(counter);
+
+            if (counter == targetNumber) {
+                winner();
+            } else if (counter > targetNumber) {
+                loser();
+            }
+          
         });
 
         $(green).click(function () {
-            alert("You clicked my green crystal");
+            counter = counter + num3;
+            $("#totalScore").text(counter);
+            console.log(counter);
+            if (counter == targetNumber) {
+                winner();
+            } else if (counter > targetNumber) {
+                loser();
+            }
+            
         });
 
         $(blue).click(function () {
-            alert("You clicked my blue crystal");
+            counter = counter + num2;
+            $("#totalScore").text(counter);
+            console.log(counter);
+            if (counter == targetNumber) {
+                winner();
+            } else if (counter > targetNumber) {
+                loser();
+            }
+            
         });
 
         $(yellow).click(function () {
-            alert("You clicked my yellow crystal");
+            counter = counter + num4;
+            $("#totalScore").text(counter);
+            console.log(counter);
+            if (counter == targetNumber) {
+                winner();
+            } else if (counter > targetNumber) {
+                loser();
+            }
+          
         });
 
-        $("#red").attr("value", num1)
-        $("#green").attr("value", num2)
-        $("#blue").attr("value", num3)
-        $("#yellow").attr("value", num4)
+        function restartGame() {
 
+            targetNumber = randomNumberFromRange(minNumber,
+                maxNumber);
+            $("#targetNumber").text(targetNumber);
+            Cry1 = Math.floor(Math.random() * 10) + 1;
+            Cry2 = Math.floor(Math.random() * 10) + 1;
+            Cry3 = Math.floor(Math.random() * 10) + 1;
+            Cry4 = Math.floor(Math.random() * 10) + 1;
+            counter = 0;
+            $("#totalScore").text(counter);
+
+        }
 
         function winner() {
             alert("You Won!!");
             wins++;
             $("#numberWins").text("Wins: " + wins);
-            reset();
+            restartGame();
         }
 
 
         function loser() {
             alert("You Lose!!");
             losses++;
-            $("#numberLosses").text("losses: " + losses);
-            reset();
+            $("#numberLosses").text("Losses: " + losses);
+            restartGame();
         }
 
-        //create a while loop to keep running until certain conditions are met 
 
-        //call back function ex is the .on click
     </script>
 </body>
 
