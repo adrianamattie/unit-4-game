@@ -29,4 +29,11 @@ img {
     padding-left: 1em;
     height: 2em;
     line-height: 30px;
+    margin-top: 15px;
+}
+
+#tallies {
+    border: solid green;
+    margin-bottom: 15px;
+    width: 436px;
 }

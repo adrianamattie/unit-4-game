@@ -31,20 +31,20 @@
         </main>
     </div>
 
-    <div class="container">
-        <div class="row">
+    <div id="tallies" class="container">
 
-            <div id="targetNumber" class="col-6"></div>
-            <div class="col-6">
-                <div class="row">
-                    <div id="numberWins" class="col-12">Wins:</div>
-                </div>
-                <div class="row">
-                    <div id="numberLosses" class="col-12">Losses:</div>
-                </div>
-            </div>
-        </div>
+
+        <div id="targetNumber"></div>
+
+
+        <div id="numberWins">Wins:</div>
+
+
+        <div id="numberLosses">Losses:</div>
+
+
     </div>
+
 
     <div class="container">
         <div class="row">
@@ -116,7 +116,7 @@
             } else if (counter > targetNumber) {
                 loser();
             }
-          
+
         });
 
         $(green).click(function () {
@@ -128,7 +128,7 @@
             } else if (counter > targetNumber) {
                 loser();
             }
-            
+
         });
 
         $(blue).click(function () {
@@ -140,7 +140,7 @@
             } else if (counter > targetNumber) {
                 loser();
             }
-            
+
         });
 
         $(yellow).click(function () {
@@ -152,7 +152,7 @@
             } else if (counter > targetNumber) {
                 loser();
             }
-          
+
         });
 
         function restartGame() {
@@ -183,8 +183,6 @@
             $("#numberLosses").text("Losses: " + losses);
             restartGame();
         }
-
-
     </script>
 </body>
 
