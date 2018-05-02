@@ -33,6 +33,7 @@
 
     <div class="container">
         <div class="row">
+
             <div id="targetNumber" class="col-6"></div>
             <div class="col-6">
                 <div class="row">
@@ -158,27 +159,27 @@
 
             targetNumber = randomNumberFromRange(minNumber,
                 maxNumber);
-            $("#targetNumber").text(targetNumber);
-            Cry1 = Math.floor(Math.random() * 10) + 1;
-            Cry2 = Math.floor(Math.random() * 10) + 1;
-            Cry3 = Math.floor(Math.random() * 10) + 1;
-            Cry4 = Math.floor(Math.random() * 10) + 1;
+            $("#targetNumber").text("Target number: " + targetNumber);
+            num1 = Math.floor(Math.random() * 10) + 1;
+            num2 = Math.floor(Math.random() * 10) + 1;
+            num3 = Math.floor(Math.random() * 10) + 1;
+            num4 = Math.floor(Math.random() * 10) + 1;
             counter = 0;
             $("#totalScore").text(counter);
 
         }
 
         function winner() {
-            alert("You Won!!");
             wins++;
+            alert("You Won!!");
             $("#numberWins").text("Wins: " + wins);
             restartGame();
         }
 
 
         function loser() {
-            alert("You Lose!!");
             losses++;
+            alert("You Lose!!");
             $("#numberLosses").text("Losses: " + losses);
             restartGame();
         }
