@@ -17,7 +17,7 @@
 
 
     <div class="container">
-        <h1>Crystal Collector!</h1>
+        <h1 id="title">Crystal Collector!</h1>
         <main id="mainContent">
             <p>You will be given a random number at the start of the game.</p>
             <p>There are four crystals below. By clicking on a crystal you will add a specfic amount of points to your total
@@ -49,16 +49,16 @@
         <div class="row">
             <div class="col-3">
 
-                <img id="crystals" class="red" type="button" class="btn btn-light" data-crystalValue="2" src="assets/images/red-crystal.jpg" alt="crystal1">
+                <img class="crystals" id="red" type="button" value="" class="btn btn-light" src="assets/images/red-crystal.jpg" alt="crystal1">
             </div>
             <div class="col-3">
-                <img id="crystals" class="blue" type="button" class="btn btn-light" data-crystalValue="5" src="assets/images/blue-crystal.jpg" alt="crystal2">
+                <img class="crystals" id="blue" type="button" value="" class="btn btn-light" src="assets/images/blue-crystal.jpg" alt="crystal2">
             </div>
             <div class="col-3">
-                <img id="crystals" class="green" type="button" class="btn btn-light" data-crystalValue="15" src="assets/images/green-crystal.jpg" alt="crystal3">
+                <img class="crystals" id="green" type="button" value="" class="btn btn-light" src="assets/images/green-crystal.jpg" alt="crystal3">
             </div>
             <div class="col-3">
-                <img id="crystals" class="yellow" type="button" class="btn btn-light" data-crystalValue="10" src="assets/images/yellow-crystal.jpg" alt="crystal4">
+                <img class="crystals" id="yellow" type="button" value="" class="btn btn-light" src="assets/images/yellow-crystal.jpg" alt="crystal4">
             </div>
         </div>
         <div id="scoreBox">
@@ -78,10 +78,14 @@
         var losses = 0;
         var randomNumber = randomNumberFromRange(minNumber,
             maxNumber);
-        var num1 = Math.floor(Math.random() * 11 + 1)
-        var num2 = Math.floor(Math.random() * 11 + 1)
-        var num3 = Math.floor(Math.random() * 11 + 1)
-        var num4 = Math.floor(Math.random() * 11 + 1)
+        var num1 = Math.floor(Math.random() * 10 + 1)
+        console.log(num1)
+        var num2 = Math.floor(Math.random() * 10 + 1)
+        console.log(num2)
+        var num3 = Math.floor(Math.random() * 10 + 1)
+        console.log(num3)
+        var num4 = Math.floor(Math.random() * 10 + 1)
+        console.log(num4)
 
         //to create the random number
         function randomNumberFromRange(min, max) {
@@ -90,12 +94,26 @@
         console.log(randomNumber);
         $("#targetNumber").text("Target number: " + randomNumber);
 
-
-
-
-        $(this).click(function () {
-            alert("You clicked my crystal");
+        $(red).click(function () {
+            alert("You clicked my red crystal");
         });
+
+        $(green).click(function () {
+            alert("You clicked my green crystal");
+        });
+
+        $(blue).click(function () {
+            alert("You clicked my blue crystal");
+        });
+
+        $(yellow).click(function () {
+            alert("You clicked my yellow crystal");
+        });
+
+        $("#red").attr("value", num1)
+        $("#green").attr("value", num2)
+        $("#blue").attr("value", num3)
+        $("#yellow").attr("value", num4)
 
 
         function winner() {
@@ -112,6 +130,10 @@
             $("#numberLosses").text("losses: " + losses);
             reset();
         }
+
+        //create a while loop to keep running until certain conditions are met 
+
+        //call back function ex is the .on click
     </script>
 </body>
 

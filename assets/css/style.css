@@ -1,7 +1,19 @@
+body {
+    background-image: url("https://i.ytimg.com/vi/EBz7uFQsK2Y/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#title {
+    color: green;
+}
+
+#targetNumber {
+    color: green; 
+}
 #mainContent {
-    background-color: lightcoral;
-    color: lightslategray;
-    border: lightslategray dotted;
+    background-color: white;
+    color: green;
+    border:Green;
 }
 
 img {
@@ -10,10 +22,9 @@ img {
 }
 
 #scoreBox {
-    background-color: teal;
+    background-color: green;
     overflow: hidden;
     padding-left: 1em;
     height: 2em;
     line-height: 30px;
 }
-
